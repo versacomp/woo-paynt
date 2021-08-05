@@ -10,6 +10,15 @@ Author URI: https://www.versacomputer.com/woo-paynt/
 */
 
 class VersaCompPayntGateway {
-    //TODO: create plugin class
+
+    public function init() {
+
+        if (!class_exists('WC_Payment_Gateway')) {
+            return;
+        }
+
+        load_plugin_textdomain('versacomp_paynt', false, dirname(plugin_basename(__FILE__)) . '/languages');
+
+    }
 }
 new VersaCompPayntGateway();
